@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - UNISIATU I.T Institute</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="logo-div">
+        <img class="logo" src="./images/unisiatu logo.png" alt="">
+        <h1>UNISIATU I.T Institute</h1>
+      </div>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Our Gallery</h2>
+    <p>Explore our learning environment, student activities, and modern facilities.</p>
+  </section>
+
+  <!-- FILTER BUTTONS -->
+  <section>
+    <div class="section-title">
+      <h2>Explore Moments</h2>
+    </div>
+  </section>
+  <section>
+
+    <div class="gallery-filter">
+      <button onclick="filterGallery('all')">All</button>
+      <button onclick="filterGallery('labs')">Labs</button>
+      <button onclick="filterGallery('students')">Students</button>
+      <button onclick="filterGallery('events')">Lecturers</button>
+    </div>
+
+    <!-- GALLERY GRID -->
+    <div class="gallery-grid">
+
+      <div class="gallery-item labs">
+        <img src="./images/Practical Learning Environment.jpeg">
+      </div>
+
+      <div class="gallery-item students">
+        <img src="./images/students.jpeg">
+      </div>
+
+      <div class="gallery-item events">
+        <img src="./images/mr. sac.jpeg">
+      </div>
+
+      <div class="gallery-item labs">
+        <img src="./images/unisiatu buinding.png">
+      </div>
+
+      <div class="gallery-item students">
+        <img src="./images/musa tm.jpeg">
+      </div>
+
+      <div class="gallery-item labs">
+        <img src="./images/artificial intelligence laboratory.jpeg">
+      </div>
+
+      <div class="gallery-item students">
+        <img src="./images/std.jpeg">
+      </div>
+
+      <div class="gallery-item labs">
+        <img src="./images/unisiatu logo.png">
+      </div>
+
+      <div class="gallery-item events">
+        <img src="./images/sillah.jpeg">
+      </div>
+
+      <div class="gallery-item events">
+        <img src="./images/musa.jpeg">
+      </div>
+
+      <div class="gallery-item students">
+        <img src="./images/abu bakarr bangura.jpg">
+      </div>
+
+      <div class="gallery-item events">
+        <img src="./images/amara.jpeg">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <span onclick="closeLightbox()">×</span>
+    <img id="lightbox-img">
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-container">
+
+      <!-- QUICK LINKS -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="facilities.html">Facilities</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>Email: info@unisiatu.edu</p>
+        <p>Phone: +232 31 746 542</p>
+        <p>Location: NP Gas Station Masoila, Lungi, Sierra Leone</p>
+      </div>
+
+      <!-- SOCIAL MEDIA -->
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div class="socials">
+          <a href="https://facebook.com/yourpageusername"><i class="fab fa-facebook-f"><img class="follow-us-icon"
+                src="./images/facebook.png" alt=""></i></a>
+          <a href="https://twitter.com/yourusername"><i class="fab fa-twitter"><img class="follow-us-icon"
+                src="./images/tweeter.png" alt=""></i></a>
+          <a href="https://instagram.com/yourusername"><i class="fab fa-instagram"><img class="follow-us-icon"
+                src="./images/Instagram.jpeg" alt=""></i></a>
+          <a href="https://linkedin.com/company/yourcompanyname"><i class="fab fa-linkedin-in"><img
+                class="follow-us-icon" src="./images/linkedin.png" alt=""></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footer-bottom">&copy; 2026 UNISIATU Information and Technology Institute. All Rights Reserved.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // FILTER FUNCTION
+    function filterGallery(category) {
+      let items = document.querySelectorAll(".gallery-item");
+
+      items.forEach(item => {
+        if (category === "all") {
+          item.style.display = "block";
+        } else {
+          item.style.display = item.classList.contains(category) ? "block" : "none";
+        }
+      });
+    }
+
+    // LIGHTBOX
+    const images = document.querySelectorAll(".gallery-item img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.style.display = "none";
+    }
+    function toggleMenu() {
+      document.querySelector("nav ul").classList.toggle("active");
+    }
+  </script>
+</body>
+
+</html>
